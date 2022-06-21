@@ -4,7 +4,7 @@
         <div *ngFor="let data of topScienceData" class="col-lg-3 mt-3 mb-3">
             <div class="box">
                 <img src="{{data.urlToImage}}" alt="image">
-                <h5 class="mt-3 mb-3">{{ data.title }}</h5>
+                <h5 class="mt-3 mb-3">{{ data.title | short:50 }}</h5>
                 <a class="btn btn-dark btn-sm" href="{{data.url}}" target="_blank">Read More</a>
             </div>
         </div>

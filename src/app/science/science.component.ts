@@ -8,14 +8,17 @@ import { Subscription } from 'rxjs';
   templateUrl: './science.component.html',
   styleUrls: ['./science.component.css']
 })
-export class ScienceComponent implements OnInit {
+export class ScienceComponent 
+implements OnInit, OnDestroy {
 
   constructor(private api: NewsapiService) { }
   subscription = new Subscription;
   topScienceData: any[] = [];
   
   ngOnInit(): void {
-    this.subscription = this.api.scienceHeadlines().subscribe(result => {
+    this.subscription = 
+    this.api.scienceHeadlines()
+    .subscribe(result => {
       console.log(result);
       this.topScienceData = result.articles;
     })

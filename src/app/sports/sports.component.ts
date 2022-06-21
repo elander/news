@@ -1,26 +1,21 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { NewsapiService } from '../newsapi.service';
-import { Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-sports',
   templateUrl: './sports.component.html',
   styleUrls: ['./sports.component.css']
 })
-export class SportsComponent implements OnInit, OnDestroy {
+export class SportsComponent implements OnInit {
   constructor(private api: NewsapiService) { }
-  subscription = new Subscription;
-  topSportsData: any[] = [];
+  topSportsData: Observable<any> = {} as Observable<any>;
   
   ngOnInit(): void {
-    this.subscription = this.api.sportsHeadlines().subscribe(result => {
-      console.log(result);
-      this.topSportsData = result.articles;
-    })
+    this.topSportsData = this.api
+    .sportsHeadlines();
   }
 
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-  }
+  
 }
