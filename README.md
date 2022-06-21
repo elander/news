@@ -1,5 +1,7 @@
 # News
 
+A page with an explanation of the pipe "async": [Angular Async Pipe](https://www.vitainbeta.org/2022/05/03/angular-async-pipe/)
+
 A page with nice demos of RxJS stream functions: [RxJS Marbles](https://rxmarbles.com/)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.2.
